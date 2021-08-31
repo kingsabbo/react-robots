@@ -8,24 +8,24 @@ class App extends Component {
     constructor() {
         super()
         this.state = {
-            corgis: [],
+            robots: [],
             searchField: ''
         }
     }
     componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/users')
             .then(response => response.json())
-            .then(users => this.setState({ corgis: users }));
+            .then(users => this.setState({ robots: users }));
     }
     onSearchChange= (event) => {
         this.setState({ searchField: event.target.value });
     }
     render() {
-        const { corgis, searchField } = this.state;
-        const filteredCorigs = corgis.filter(corgis => {
-            return corgis.name.toLowerCase().includes(searchField.toLowerCase());
+        const { robots, searchField } = this.state;
+        const filteredCorigs = robots.filter(robots => {
+            return robots.name.toLowerCase().includes(searchField.toLowerCase());
         });
-        if (!corgis.length) {
+        if (!robots.length) {
             return <h1>Loading...</h1>
         }
         else {
@@ -34,7 +34,7 @@ class App extends Component {
                     <h1 className='bb pa2 f1'>Robots</h1>
                     <SearchBox searchChange={this.onSearchChange} />
                     <Scroll>
-                        <CardList corgis={filteredCorigs} />
+                        <CardList robots={filteredCorigs} />
                     </Scroll>
                 </div>
             );

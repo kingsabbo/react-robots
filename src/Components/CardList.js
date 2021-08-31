@@ -1,18 +1,18 @@
 import React from 'react';
 import Card from './Card';
 
-const CardList = ({ corgis }) => {
+const CardList = ({ robots }) => {
     return (
         <div>
             {
-                corgis.map((user, i) => {
+                robots.map((user, i) => {
                     return (
                         <Card
-                            key={corgis[i].id} 
-                            id={corgis[i].id} 
-                            name={corgis[i].name} 
-                            city={corgis[i].city} 
-                            username={corgis[i].username} />
+                            key={robots[i].id} 
+                            id={robots[i].id} 
+                            name={robots[i].name} 
+                            city={robots[i].city} 
+                            username={robots[i].username} />
                     );
                 })
             }
